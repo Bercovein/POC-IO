@@ -1,5 +1,6 @@
 package com.example.POCIO.controller;
 
+import com.example.POCIO.dto.PersonDTO;
 import com.example.POCIO.dto.TextDTO;
 import com.example.POCIO.service.IOService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,4 +30,15 @@ public class IOController {
     public void writeFile(@RequestBody @Valid TextDTO request) throws IOException {
         this.service.writeFile(request);
     }
+
+    @GetMapping("/object/read")
+    public ResponseEntity<PersonDTO> readObject() throws IOException {
+        return ResponseEntity.ok(this.service.readPerson());
+    }
+
+    @PostMapping("/object/write")
+    public void writeObject(@RequestBody @Valid PersonDTO request) throws IOException {
+        this.service.writePerson(request);
+    }
+
 }

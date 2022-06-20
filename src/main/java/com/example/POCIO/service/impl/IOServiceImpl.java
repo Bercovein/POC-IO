@@ -1,21 +1,21 @@
 package com.example.POCIO.service.impl;
 
 
+import com.example.POCIO.dto.PersonDTO;
 import com.example.POCIO.dto.TextDTO;
 import com.example.POCIO.service.IOService;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 @Service
 public class IOServiceImpl implements IOService {
 
     private final static String FILES_PATH="files/";
+
+    private final static String PERSONS_PATH = FILES_PATH.concat("Persons.txt");
+
+    private final static String MY_FILE_PATH = FILES_PATH.concat("myFile.txt");
 
     @Override
     public TextDTO readFile() throws IOException {
@@ -23,23 +23,23 @@ public class IOServiceImpl implements IOService {
         TextDTO response = TextDTO.builder().build();
         BufferedReader reader = null;
         String toResponse = "";
-        String strng;
+        String str;
 
         try {
-            File file = new File(FILES_PATH.concat("myFile.txt"));
+            File file = new File(MY_FILE_PATH);
             reader = new BufferedReader(new FileReader(file));
 
-            while ((strng = reader.readLine()) != null) {
-                toResponse = toResponse.concat(strng);
+            while ((str = reader.readLine()) != null) { //line oriented
+                toResponse = toResponse.concat(str);
             }
             response.setText(toResponse);
 
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
-            if(reader != null)
+            if(reader != null) {
                 reader.close();
-
+            }
         }
         return response;
     }
@@ -50,7 +50,7 @@ public class IOServiceImpl implements IOService {
         BufferedWriter writer = null;
 
         try {
-            File file = new File(FILES_PATH.concat("myFile.txt"));
+            File file = new File(MY_FILE_PATH);
 
             writer = new BufferedWriter(new FileWriter(file,true));
             writer.newLine();
@@ -58,8 +58,46 @@ public class IOServiceImpl implements IOService {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (writer != null)
+            if (writer != null) {
+                writer.flush();
                 writer.close();
+            }
         }
+    }
+
+    @Override
+    public void writePerson(PersonDTO person){
+
+        try{
+            FileOutputStream fileOutputStream
+                    = new FileOutputStream(PERSONS_PATH);
+            ObjectOutputStream objectOutputStream
+                    = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(person); //object oriented
+            objectOutputStream.flush();
+            objectOutputStream.close();
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public PersonDTO readPerson(){
+
+        PersonDTO person = null;
+
+        try{
+            FileInputStream fileInputStream
+                    = new FileInputStream(PERSONS_PATH);
+            ObjectInputStream objectInputStream
+                    = new ObjectInputStream(fileInputStream);
+            person = (PersonDTO) objectInputStream.readObject();
+            objectInputStream.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return person;
     }
 }
