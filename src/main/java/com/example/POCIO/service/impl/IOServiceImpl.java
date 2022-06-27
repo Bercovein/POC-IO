@@ -11,11 +11,11 @@ import java.io.*;
 @Service
 public class IOServiceImpl implements IOService {
 
-    private final static String FILES_PATH="files/";
+    private static final String FILES_PATH="files/";
 
-    private final static String PERSONS_PATH = FILES_PATH.concat("Persons.txt");
+    private static final String PERSONS_PATH = FILES_PATH.concat("Persons.txt");
 
-    private final static String MY_FILE_PATH = FILES_PATH.concat("myFile.txt");
+    private static final String MY_FILE_PATH = FILES_PATH.concat("myFile.txt");
 
     @Override
     public TextDTO readFile() throws IOException {
