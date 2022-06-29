@@ -1,8 +1,8 @@
-package com.example.POCIO.controller;
+package com.example.pocio.controller;
 
-import com.example.POCIO.dto.PersonDTO;
-import com.example.POCIO.dto.TextDTO;
-import com.example.POCIO.service.IOService;
+import com.example.pocio.dto.PersonDTO;
+import com.example.pocio.dto.TextDTO;
+import com.example.pocio.service.IOService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

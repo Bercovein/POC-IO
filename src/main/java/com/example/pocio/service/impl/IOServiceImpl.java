@@ -1,9 +1,9 @@
-package com.example.POCIO.service.impl;
+package com.example.pocio.service.impl;
 
 
-import com.example.POCIO.dto.PersonDTO;
-import com.example.POCIO.dto.TextDTO;
-import com.example.POCIO.service.IOService;
+import com.example.pocio.dto.PersonDTO;
+import com.example.pocio.dto.TextDTO;
+import com.example.pocio.service.IOService;
 import org.springframework.stereotype.Service;
 
 import java.io.*;

@@ -1,4 +1,4 @@
-package com.example.POCIO.dto;
+package com.example.pocio.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

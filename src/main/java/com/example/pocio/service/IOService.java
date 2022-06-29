@@ -1,7 +1,7 @@
-package com.example.POCIO.service;
+package com.example.pocio.service;
 
-import com.example.POCIO.dto.PersonDTO;
-import com.example.POCIO.dto.TextDTO;
+import com.example.pocio.dto.PersonDTO;
+import com.example.pocio.dto.TextDTO;
 
 import java.io.IOException;
 
