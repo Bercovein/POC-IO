@@ -4,14 +4,18 @@ package com.example.pocio.service.impl;
 import com.example.pocio.dto.PersonDTO;
 import com.example.pocio.dto.TextDTO;
 import com.example.pocio.service.IOService;
-import org.apache.tomcat.util.json.JSONParser;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+
 @Service
 public class IOServiceImpl implements IOService {
 
@@ -108,40 +112,43 @@ public class IOServiceImpl implements IOService {
     }
 
     @Override
-    public List<PersonDTO> readJson(){
+    public List<PersonDTO> readJson()  {
 
         List<PersonDTO> response = new ArrayList<>();
 
+        JSONArray list = this.readJSONArray(MY_PERSONS_PATH);
+
         try {
-            JSONParser parser = new JSONParser(new FileReader(MY_PERSONS_PATH));
-            JSONObject jsonObject;
-
-            jsonObject = (JSONObject) parser.parse();
-
-            JSONArray persons = (JSONArray)jsonObject.get("persons");
-
-            for (Object o: persons) {
-
-                JSONObject object = (JSONObject) o;
-
-                response.add(PersonDTO.builder()
-                        .age((int)object.get("age"))
-                        .lastName((String)object.get("lastName"))
-                        .name((String)object.get("name"))
-                        .build());
-            }
-
-        } catch (Exception e) {
+            list.forEach(per -> response.add(parsePerson((JSONObject) per)));
+        }catch (Exception e){
             e.printStackTrace();
         }
-
         return response;
     }
 
-    @Override
-    public void writeJson(PersonDTO person) throws IOException {
+    private JSONArray readJSONArray(String path) {
+        JSONArray response = new JSONArray();
 
-        FileWriter file = new FileWriter(MY_PERSONS_PATH);
+        try {
+            JSONParser jsonParser = new JSONParser();
+            response = (JSONArray) jsonParser.parse(new FileReader(path));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return response;
+    }
+
+    private static PersonDTO parsePerson(JSONObject person)
+    {
+        return PersonDTO.builder()
+                .name((String)person.get("name"))
+                .lastName((String)person.get("lastName"))
+                .age(Integer.parseInt(person.get("age").toString()))
+                .build();
+    }
+
+    @Override
+    public void writeJson(PersonDTO person) {
 
         JSONObject obj = new JSONObject();
 
@@ -149,8 +156,47 @@ public class IOServiceImpl implements IOService {
         obj.put("age", person.getAge());
         obj.put("lastName", person.getLastName());
 
-        file.write(String.valueOf(obj));
+        JSONArray list = this.readJSONArray(MY_PERSONS_PATH);
+        list.add(obj);
 
-        file.close();
+        try (FileWriter file = new FileWriter(MY_PERSONS_PATH)) {
+            file.write(String.valueOf(list));
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Override
+    public void writeJackson(PersonDTO personDTO) throws IOException {
+
+        try {
+            List<PersonDTO> list = this.readJackson();
+
+            list.add(personDTO);
+
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.writeValue(Paths.get(MY_PERSONS_PATH).toFile(), list);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<PersonDTO> readJackson() {
+
+        List<PersonDTO> response = new ArrayList<>();
+
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+
+            response = mapper.readValue(Paths.get(MY_PERSONS_PATH).toFile(), ArrayList.class);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+       return response;
+
     }
 }

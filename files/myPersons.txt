@@ -1,9 +1,1 @@
-{
-    "persons":[
-        {
-            "name":"Nombre",
-            "lastName":"Apellido",
-            "age":20
-        }
-    ]
-}
+[{"lastName":"Apellido","name":"Nombre","age":20},{"lastName":"Apellido","name":"Nombre","age":20},{"age":20,"name":"Nombre","lastName":"Apellido"}]

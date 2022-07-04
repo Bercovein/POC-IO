@@ -9,14 +9,6 @@ e
 5src/main/java/com/example/pocio/PocIoApplication.java,c\6\c600a98595821a25c848d03672dcfe1b536ef791
 A
 files/Persons.txt,3\9\39c4105965eca11acdc2d977719d491eb1e4ff91
-@
-files/myFile.txt,2\f\2f3879302c4c890abfc144510296b532cbe807a3
-b
-2src/main/java/com/example/pocio/dto/PersonDTO.java,c\6\c6b2f139cd0115e2a5460dbbb28b5c4e7f7d6257
-l
-<src/main/java/com/example/pocio/controller/IOController.java,4\9\494ae3714cb41312fde209b73ee1d4a7fb5d04af
-f
-6src/main/java/com/example/pocio/service/IOService.java,3\f\3fc6d11ccb815481f64cbeaedfcbafd73aa56a85
 p
 @.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_11.xml,8\c\8ccbb9388e386e6f3944c782e3d5a9dd5c13aeae
 m
