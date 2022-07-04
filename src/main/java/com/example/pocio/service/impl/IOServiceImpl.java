@@ -5,9 +5,8 @@ import com.example.pocio.dto.PersonDTO;
 import com.example.pocio.dto.TextDTO;
 import com.example.pocio.service.IOService;
 import org.apache.tomcat.util.json.JSONParser;
-import org.apache.tomcat.util.json.ParseException;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -115,22 +114,27 @@ public class IOServiceImpl implements IOService {
 
         try {
             JSONParser parser = new JSONParser(new FileReader(MY_PERSONS_PATH));
+            JSONObject jsonObject;
 
-            JSONArray a = (JSONArray) parser.parse();
+            jsonObject = (JSONObject) parser.parse();
 
-            for (Object o : a)
-            {
-                JSONObject person = (JSONObject) o;
+            JSONArray persons = (JSONArray)jsonObject.get("persons");
+
+            for (Object o: persons) {
+
+                JSONObject object = (JSONObject) o;
 
                 response.add(PersonDTO.builder()
-                        .age((int) person.get("age"))
-                        .name((String) person.get("name"))
-                        .lastName((String) person.get("lastName"))
+                        .age((int)object.get("age"))
+                        .lastName((String)object.get("lastName"))
+                        .name((String)object.get("name"))
                         .build());
             }
-        } catch (FileNotFoundException | ParseException e) {
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
         return response;
     }
 
