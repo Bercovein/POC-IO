@@ -1,139 +1,174 @@
 {
 	"info": {
-		"_postman_id": "3202e9aa-e9f6-4087-a02c-99bbbf741da6",
+		"_postman_id": "1bb40740-26ea-4844-bff3-6f35b923bab2",
 		"name": "POCS",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Buffer",
+			"name": "IO",
 			"item": [
 				{
-					"name": "writeFile",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"text\":\"Hola como andas\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "Object",
+					"item": [
+						{
+							"name": "Read Object",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/io/object/read",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"io",
+										"object",
+										"read"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "localhost:8080/io/buffer/write",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"io",
-								"buffer",
-								"write"
-							]
+						{
+							"name": "Write Object",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"text\":\"hola\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/io/object/write",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"io",
+										"object",
+										"write"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "readFile",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "Buffer",
+					"item": [
+						{
+							"name": "Read txt",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/io/buffer/read",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"io",
+										"buffer",
+										"read"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "localhost:8080/io/buffer/read",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"io",
-								"buffer",
-								"read"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Object",
-			"item": [
-				{
-					"name": "writeObject",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"age\":21,\r\n    \"name\":\"Jorge\",\r\n    \"lastName\":\"Apellido\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "Write txt",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"text\":\"lucho está molesto hoy\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/io/buffer/write",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"io",
+										"buffer",
+										"write"
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/io/object/write",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"io",
-								"object",
-								"write"
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "readObject",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "JSON",
+					"item": [
+						{
+							"name": "Read",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/io/json/read",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"io",
+										"json",
+										"read"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "localhost:8080/io/object/read",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"io",
-								"object",
-								"read"
-							]
+						{
+							"name": "Write",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Nombre\",\r\n    \"lastName\":\"Apellido\",\r\n    \"age\":20\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/io/json/write",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"io",
+										"json",
+										"write"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				}
 			]
 		}
