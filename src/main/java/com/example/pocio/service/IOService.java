@@ -4,6 +4,7 @@ import com.example.pocio.dto.PersonDTO;
 import com.example.pocio.dto.TextDTO;
 
 import java.io.IOException;
+import java.util.List;
 
 public interface IOService {
     TextDTO readFile() throws IOException;
@@ -13,4 +14,8 @@ public interface IOService {
     void writePerson(PersonDTO person);
 
     PersonDTO readPerson();
+
+    List<PersonDTO> readJson();
+
+    void writeJson(PersonDTO person) throws IOException;
 }

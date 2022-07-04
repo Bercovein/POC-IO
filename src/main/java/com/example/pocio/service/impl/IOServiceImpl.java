@@ -4,10 +4,15 @@ package com.example.pocio.service.impl;
 import com.example.pocio.dto.PersonDTO;
 import com.example.pocio.dto.TextDTO;
 import com.example.pocio.service.IOService;
+import org.apache.tomcat.util.json.JSONParser;
+import org.apache.tomcat.util.json.ParseException;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
-
+import java.util.ArrayList;
+import java.util.List;
 @Service
 public class IOServiceImpl implements IOService {
 
@@ -16,6 +21,8 @@ public class IOServiceImpl implements IOService {
     private static final String PERSONS_PATH = FILES_PATH.concat("Persons.txt");
 
     private static final String MY_FILE_PATH = FILES_PATH.concat("myFile.txt");
+
+    private static final String MY_PERSONS_PATH = FILES_PATH.concat("myPersons.txt");
 
     @Override
     public TextDTO readFile() throws IOException {
@@ -99,5 +106,47 @@ public class IOServiceImpl implements IOService {
         }
 
         return person;
+    }
+
+    @Override
+    public List<PersonDTO> readJson(){
+
+        List<PersonDTO> response = new ArrayList<>();
+
+        try {
+            JSONParser parser = new JSONParser(new FileReader(MY_PERSONS_PATH));
+
+            JSONArray a = (JSONArray) parser.parse();
+
+            for (Object o : a)
+            {
+                JSONObject person = (JSONObject) o;
+
+                response.add(PersonDTO.builder()
+                        .age((int) person.get("age"))
+                        .name((String) person.get("name"))
+                        .lastName((String) person.get("lastName"))
+                        .build());
+            }
+        } catch (FileNotFoundException | ParseException e) {
+            e.printStackTrace();
+        }
+        return response;
+    }
+
+    @Override
+    public void writeJson(PersonDTO person) throws IOException {
+
+        FileWriter file = new FileWriter(MY_PERSONS_PATH);
+
+        JSONObject obj = new JSONObject();
+
+        obj.put("name", person.getName());
+        obj.put("age", person.getAge());
+        obj.put("lastName", person.getLastName());
+
+        file.write(String.valueOf(obj));
+
+        file.close();
     }
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/io")
@@ -41,4 +42,13 @@ public class IOController {
         this.service.writePerson(request);
     }
 
+    @GetMapping("/json/read")
+    public ResponseEntity<List<PersonDTO>> readJson() {
+        return ResponseEntity.ok(this.service.readJson());
+    }
+
+    @PostMapping("/json/write")
+    public void writeJson(@RequestBody @Valid PersonDTO request) throws IOException {
+        this.service.writeJson(request);
+    }
 }
