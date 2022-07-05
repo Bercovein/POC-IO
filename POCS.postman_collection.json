@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1bb40740-26ea-4844-bff3-6f35b923bab2",
+		"_postman_id": "61fa281e-2db5-474b-b5cc-1c04a7213d48",
 		"name": "POCS",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -169,6 +169,60 @@
 							"response": []
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "Jackson",
+			"item": [
+				{
+					"name": "Read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/io/jackson/read",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"io",
+								"jackson",
+								"read"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Write",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Nombre\",\r\n    \"lastName\":\"Apellido\",\r\n    \"age\":20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/io/jackson/write",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"io",
+								"jackson",
+								"write"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
