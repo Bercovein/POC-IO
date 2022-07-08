@@ -54,13 +54,4 @@ public class IOController {
         this.service.writeJson(request);
     }
 
-    @GetMapping("/jackson/read")
-    public ResponseEntity<List<PersonDTO>> readJackson() throws IOException {
-        return ResponseEntity.ok(this.service.readJackson());
-    }
-
-    @PostMapping("/jackson/write")
-    public void writeJackson(@RequestBody @Valid PersonDTO request) throws IOException {
-        this.service.writeJackson(request);
-    }
 }

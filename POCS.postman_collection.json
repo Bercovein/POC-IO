@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "61fa281e-2db5-474b-b5cc-1c04a7213d48",
+		"_postman_id": "1bb40740-26ea-4844-bff3-6f35b923bab2",
 		"name": "POCS",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -122,16 +122,24 @@
 						{
 							"name": "Read",
 							"request": {
-								"method": "GET",
+								"method": "POST",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"text\":\"{\\\"name\\\":\\\"Carmen\\\"}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
-									"raw": "localhost:8080/io/json/read",
+									"raw": "localhost:8080/json/read",
 									"host": [
 										"localhost"
 									],
 									"port": "8080",
 									"path": [
-										"io",
 										"json",
 										"read"
 									]
@@ -140,13 +148,13 @@
 							"response": []
 						},
 						{
-							"name": "Write",
+							"name": "From Json",
 							"request": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\":\"Nombre\",\r\n    \"lastName\":\"Apellido\",\r\n    \"age\":20\r\n}",
+									"raw": "{\r\n    \"text\":\"{\\\"name\\\":\\\"Carmen\\\",\\\"lastName\\\":\\\"Garcia\\\",\\\"age\\\":60}\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -154,75 +162,20 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:8080/io/json/write",
+									"raw": "localhost:8080/json/fromJson",
 									"host": [
 										"localhost"
 									],
 									"port": "8080",
 									"path": [
-										"io",
 										"json",
-										"write"
+										"fromJson"
 									]
 								}
 							},
 							"response": []
 						}
 					]
-				}
-			]
-		},
-		{
-			"name": "Jackson",
-			"item": [
-				{
-					"name": "Read",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/io/jackson/read",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"io",
-								"jackson",
-								"read"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Write",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Nombre\",\r\n    \"lastName\":\"Apellido\",\r\n    \"age\":20\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/io/jackson/write",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"io",
-								"jackson",
-								"write"
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		}
