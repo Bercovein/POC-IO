@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../POC-IO.iml" filepath="$PROJECT_DIR$/../POC-IO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/POC-IO.iml" filepath="$PROJECT_DIR$/POC-IO.iml" />
     </modules>
   </component>
 </project>

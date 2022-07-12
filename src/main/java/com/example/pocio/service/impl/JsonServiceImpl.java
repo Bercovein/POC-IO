@@ -32,5 +32,4 @@ public class JsonServiceImpl implements IJsonService {
         System.out.println("Person:" + person.toString());
     }
 
-
 }

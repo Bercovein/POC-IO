@@ -12,12 +12,10 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Builder
-public class PersonDTO implements Serializable {
+public class CarDTO implements Serializable {
 
-    private static final long serialVersionUID = 148791981981L;
+    private static final long serialVersionUID = 148791981982L;
 
-    private int age;
-    private String name;
-    private String lastName;
-    private List<CarDTO> cars;
+    private String model;
+    private String brand;
 }
