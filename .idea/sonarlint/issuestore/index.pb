@@ -7,10 +7,6 @@ j
 0src/main/java/com/example/pocio/dto/TextDTO.java,2\d\2d11cc9ed4581bfe193c13f6fd493ea3050b2645
 e
 5src/main/java/com/example/pocio/PocIoApplication.java,c\6\c600a98595821a25c848d03672dcfe1b536ef791
-A
-files/Persons.txt,3\9\39c4105965eca11acdc2d977719d491eb1e4ff91
-@
-files/myFile.txt,2\f\2f3879302c4c890abfc144510296b532cbe807a3
 f
 6src/main/java/com/example/pocio/service/IOService.java,3\f\3fc6d11ccb815481f64cbeaedfcbafd73aa56a85
 p
@@ -152,15 +148,16 @@ E.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1.xml,a\5\a545
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-C
-files/myPersons.txt,9\6\96a99a736fd1527a7efc267e294b44bed217ae1a
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-l
-<src/main/java/com/example/pocio/controller/IOController.java,4\9\494ae3714cb41312fde209b73ee1d4a7fb5d04af
 o
 ?src/main/java/com/example/pocio/service/impl/IOServiceImpl.java,8\d\8d4141a98f5c0624f02e2b66720e3626a5fba715
 _
 /src/main/java/com/example/pocio/utils/Json.java,b\3\b3238a7b4adb0664d125581cb9fd0b45e936883e
 L
 POCS.postman_collection.json,a\4\a49d8fba4845433451a02bf4ee4ef75e9b5f817f
+:
+
+POC-IO.iml,0\3\0335fb7da1bea8858a5cec7ccb9e79d354297cc9
+l
+<src/main/java/com/example/pocio/controller/IOController.java,4\9\494ae3714cb41312fde209b73ee1d4a7fb5d04af
+_
+/src/main/java/com/example/pocio/dto/CarDTO.java,c\e\cec226918f3744771dd57197a0127ecf4165a6cc
