@@ -1,8 +1,15 @@
 package com.example.pocio.controller;
 
 import com.example.pocio.patterns.adapter.RoundHole;
+import com.example.pocio.patterns.adapter.RoundPiece;
 import com.example.pocio.patterns.adapter.SquarePiece;
 import com.example.pocio.patterns.adapter.SquarePieceAdapter;
+import com.example.pocio.patterns.factory.Circle;
+import com.example.pocio.patterns.factory.Figure;
+import com.example.pocio.patterns.factory.FigureFactory;
+import com.example.pocio.patterns.factory.FigureType;
+import com.example.pocio.patterns.factory.Rectangle;
+import com.example.pocio.patterns.factory.Triangle;
 import com.example.pocio.patterns.observer.Editor;
 import com.example.pocio.patterns.observer.EmailNotificationListener;
 import com.example.pocio.patterns.observer.LogOpenListener;
@@ -14,6 +21,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.w3c.dom.css.Rect;
 
 @RestController
 @RequestMapping("/pattern")
@@ -42,22 +50,25 @@ public class PatternController {
         }
     }
 
-    @GetMapping("/adapter")
-    public void adapter(){
-        RoundHole hole = new RoundHole(5);
+    @GetMapping("/adapter/{hole}/{piece}")
+    public void adapter(@PathVariable("hole") int hole,@PathVariable("piece") int piece){
 
-        SquarePiece smallSquare = new SquarePiece(2);
-        SquarePiece largeSquare = new SquarePiece(20);
-
+        RoundHole roundHole = new RoundHole(hole);
+        SquarePiece square = new SquarePiece(piece);
+        RoundPiece round = new RoundPiece(piece);
         // Aplicamos el adaptador
-        SquarePieceAdapter smallSquareAdapter = new SquarePieceAdapter(smallSquare);
-        SquarePieceAdapter largeSquareAdapter = new SquarePieceAdapter(largeSquare);
-        if (hole.fits(smallSquareAdapter)) {
-            System.out.println("La pieza cuadrada de " + smallSquare.getWidth() +" cm entra en un agujero redondo de " + hole.getRadius() + " cm de radio.");
-        }
-        if (!hole.fits(largeSquareAdapter)) {
-            System.out.println("La pieza cuadrada de " + smallSquare.getWidth() +" cm NO entra en un agujero redondo de " + hole.getRadius() + " cm de radio.");
+        SquarePieceAdapter smallSquareAdapter = new SquarePieceAdapter(square);
 
+        if(roundHole.fits(round)){
+            System.out.println("La pieza REDONDA de " + round.getRadius() +" cm de radio entra en un agujero redondo de " + roundHole.getRadius() + " cm de radio.");
+        }else{
+            System.out.println("La pieza REDONDA de " + round.getRadius() +" cm de radio NO entra en un agujero redondo de " + roundHole.getRadius() + " cm de radio.");
+        }
+
+        if (roundHole.fits(smallSquareAdapter)) {
+            System.out.println("La pieza CUADRADA de " + square.getWidth() +" cm entra en un agujero redondo de " + roundHole.getRadius() + " cm de radio.");
+        }else{
+            System.out.println("La pieza CUADRADA de " + square.getWidth() +" cm NO entra en un agujero redondo de " + roundHole.getRadius() + " cm de radio.");
         }
     }
 
@@ -79,5 +90,31 @@ public class PatternController {
         if(strategy != null)
             strategy.pay(amount);
 
+    }
+
+    @GetMapping("/factory")
+    public void factory(){
+        Figure figure = FigureFactory.create(FigureType.TRIANGLE);
+        Triangle triangle = (Triangle) figure;
+        triangle.setBase(5);
+        triangle.setHeight(3);
+
+        System.out.println(triangle);
+        System.out.println("Area: " + figure.calculateArea());
+
+        figure = FigureFactory.create(FigureType.RECTANGLE);
+        Rectangle rectangle = (Rectangle) figure;
+        rectangle.setWidth(5);
+        rectangle.setHeight(3);
+
+        System.out.println(rectangle);
+        System.out.println("Area: " + figure.calculateArea());
+
+        figure = FigureFactory.create(FigureType.CIRCLE);
+        Circle circle = (Circle) figure;
+        circle.setRadius(5);
+
+        System.out.println(circle);
+        System.out.println("Area: " + figure.calculateArea());
     }
 }
