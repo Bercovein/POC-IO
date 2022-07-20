@@ -154,7 +154,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"text\":\"{\\\"name\\\":\\\"Carmen\\\",\\\"lastName\\\":\\\"Garcia\\\",\\\"age\\\":60}\"\r\n}",
+									"raw": "{\r\n    \"text\":\"{\\\"name\\\":\\\"Carmen\\\",\\\"lastName\\\":\\\"Garcia\\\",\\\"age\\\":60,\\\"cars\\\":[{\\\"brand\\\":\\\"Toyota\\\",\\\"model\\\":\\\"Corolla\\\"},{\\\"brand\\\":\\\"Ford\\\",\\\"model\\\":\\\"Falcon\\\"}]}\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -176,6 +176,116 @@
 							"response": []
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "PATTERNS",
+			"item": [
+				{
+					"name": "Singleton",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pattern/singleton",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pattern",
+								"singleton"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Observer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pattern/observer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pattern",
+								"observer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Strategy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pattern/strategy/pay/card/100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pattern",
+								"strategy",
+								"pay",
+								"card",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adapter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pattern/adapter/1/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pattern",
+								"adapter",
+								"1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Factory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pattern/factory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pattern",
+								"factory"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
