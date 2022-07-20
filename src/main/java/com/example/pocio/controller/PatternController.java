@@ -82,11 +82,11 @@ public class PatternController {
         PayStrategy strategy = null;
 
         switch (method){
-            case "card":
+            case "paypal":
                 System.out.println("Creating PayPal payment method");
                 strategy = new PayByPayPal();
                 break;
-            case "paypal":
+            case "card":
                 System.out.println("Creating Credit Card payment method");
                 strategy = new PayByCreditCard();
                 break;

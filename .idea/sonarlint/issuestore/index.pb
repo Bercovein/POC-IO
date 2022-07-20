@@ -152,8 +152,6 @@ o
 ?src/main/java/com/example/pocio/service/impl/IOServiceImpl.java,8\d\8d4141a98f5c0624f02e2b66720e3626a5fba715
 _
 /src/main/java/com/example/pocio/utils/Json.java,b\3\b3238a7b4adb0664d125581cb9fd0b45e936883e
-L
-POCS.postman_collection.json,a\4\a49d8fba4845433451a02bf4ee4ef75e9b5f817f
 :
 
 POC-IO.iml,0\3\0335fb7da1bea8858a5cec7ccb9e79d354297cc9
@@ -181,23 +179,3 @@ n
 >src/main/java/com/example/pocio/controller/JsonController.java,7\5\756ef270b9210f9378b8859319d8a1cb1872f627
 l
 <src/main/java/com/example/pocio/controller/IOController.java,4\9\494ae3714cb41312fde209b73ee1d4a7fb5d04af
-l
-<src/main/java/com/example/pocio/patterns/factory/Circle.java,3\f\3f9ba79efd0fc587253ec9a291b3479c93932fcc
-l
-<src/main/java/com/example/pocio/patterns/factory/Figure.java,b\c\bc64eb77ba6e92d90555cda0748534b5e33e5d5d
-s
-Csrc/main/java/com/example/pocio/patterns/factory/FigureFactory.java,f\a\fa2c4dd8d7c096721ed9e808f200efba6ec44beb
-p
-@src/main/java/com/example/pocio/patterns/factory/FigureType.java,b\5\b554c9473c70376086147567b58d4eaa02307ff6
-o
-?src/main/java/com/example/pocio/patterns/factory/Rectangle.java,2\0\2001856a661810718f4587329b12378f570eb130
-n
->src/main/java/com/example/pocio/patterns/factory/Triangle.java,4\e\4edbec2e71b625783e982366178d2e210cbd962e
-r
-Bsrc/main/java/com/example/pocio/patterns/strategy/PayByPayPal.java,7\e\7e7ab81004a98a8011b63264e61d7d2e55d036d2
-v
-Fsrc/main/java/com/example/pocio/patterns/strategy/PayByCreditCard.java,e\3\e39da9b2d64798995834cebf7b70d2d0551ded35
-r
-Bsrc/main/java/com/example/pocio/patterns/strategy/PayStrategy.java,d\a\da590d7b60a747e18ceef573d37edb7e69b1ad3e
-m
-=src/main/java/com/example/pocio/patterns/observer/Editor.java,b\9\b9df26e8f728cfea62beea8a6847597e71a0c659
