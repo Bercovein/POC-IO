@@ -2,7 +2,7 @@ package com.example.pocio.patterns.observer;
 
 import java.io.File;
 
-public class LogOpenListener implements EventListener {
+public class LogOpenListener implements EventListener { //ConcreteListener
     private File log;
 
     public LogOpenListener(String fileName) {

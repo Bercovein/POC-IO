@@ -2,7 +2,7 @@ package com.example.pocio.patterns.observer;
 
 import java.io.File;
 
-public class EmailNotificationListener implements EventListener {
+public class EmailNotificationListener implements EventListener { //ConcreteListener
     private String email;
 
     public EmailNotificationListener(String email) {

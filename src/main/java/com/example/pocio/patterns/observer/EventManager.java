@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class EventManager { // Notificador básico
+public class EventManager implements  IEventManager{ // ConcreteSubject
     Map<String, List<EventListener>> listeners = new HashMap<>();
 
     public EventManager(String... operations) {

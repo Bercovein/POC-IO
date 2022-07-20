@@ -29,6 +29,7 @@ public class PatternController {
 
     @GetMapping("/singleton")
     public void singleton() {
+        System.out.println("---SINGLETON---");
         System.out.println("Si vemos dos valores iguales entonces el singleton funciona:");
         Singleton singleton = Singleton.getInstance("Valor 1");
         Singleton anotherSingleton = Singleton.getInstance("Valor 2");
@@ -38,6 +39,7 @@ public class PatternController {
 
     @GetMapping("/observer")
     public void observer(){
+        System.out.println("---OBSERVER---");
         Editor editor = new Editor();
         editor.events.subscribe("open", new LogOpenListener("/path/to/log/file.txt"));
         editor.events.subscribe("save", new EmailNotificationListener("admin@example.com"));
@@ -52,6 +54,7 @@ public class PatternController {
 
     @GetMapping("/adapter/{hole}/{piece}")
     public void adapter(@PathVariable("hole") int hole,@PathVariable("piece") int piece){
+        System.out.println("---ADAPTER---");
 
         RoundHole roundHole = new RoundHole(hole);
         SquarePiece square = new SquarePiece(piece);
@@ -74,6 +77,7 @@ public class PatternController {
 
     @GetMapping("/strategy/pay/{method}/{amount}")
     public void strategy(@PathVariable("method") String method, @PathVariable("amount") int amount){
+        System.out.println("---STRATEGY---");
 
         PayStrategy strategy = null;
 
@@ -94,6 +98,8 @@ public class PatternController {
 
     @GetMapping("/factory")
     public void factory(){
+        System.out.println("---FACTORY---");
+
         Figure figure = FigureFactory.create(FigureType.TRIANGLE);
         Triangle triangle = (Triangle) figure;
         triangle.setBase(5);
