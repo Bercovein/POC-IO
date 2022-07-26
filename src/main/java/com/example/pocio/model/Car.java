@@ -16,9 +16,8 @@ public final class Car implements Properties, Cloneable {
     private String brand;
     private Integer price;
 
-    public int setPrice(Integer price){
-        this.setPrice(price);
-        return this.getPrice();
+    public void setPrice(Integer price){
+        this.price = price;
     }
 
     public int setPrice(Float price){

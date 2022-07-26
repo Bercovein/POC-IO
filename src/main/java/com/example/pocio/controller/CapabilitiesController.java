@@ -25,16 +25,15 @@ public class CapabilitiesController {
         System.out.println(client.getFullName());
         System.out.println(client.getFullName2());
 
-        Car car = new Car();
+        Car car = new Car("","",100);
 
-        car.setPrice(1);
-        car.setPrice(1.7f);
-        car.setPrice(1.7f,0.5f);
+//        car.setPrice(1);
+//        car.setPrice(1.7f);
+//        car.setPrice(1.7f,0.5f);
 
         car.gerProperties();
 
-
-        IGreeting greeting = new IGreeting() {
+        IGreeting greeting = new Greeting() {
             @Override
             public void sayHi() {
                 System.out.println("Implementación anónima");
