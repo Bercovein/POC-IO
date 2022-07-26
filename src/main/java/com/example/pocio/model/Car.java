@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
-public final class Car implements Properties {
+public final class Car implements Properties, Cloneable {
 
     private String model;
     private String brand;
@@ -29,5 +29,9 @@ public final class Car implements Properties {
     public Float setPrice(Float price, Float percent){
         this.setPrice(price * percent);
         return this.getPrice().floatValue();
+    }
+
+    public Object clone()throws CloneNotSupportedException{
+        return super.clone();
     }
 }

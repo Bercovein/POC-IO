@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class CapabilitiesController {
 
     @GetMapping
-    public void capability(){
+    public void capability() throws CloneNotSupportedException {
 
         //casting
         double myDouble = 2.55d;
@@ -46,6 +46,18 @@ public class CapabilitiesController {
         greeting = () -> System.out.println("Implementación anónima con lambda");
 
         greeting.sayHi();
+
+        //MUTABLES
+        String chain = "Hello";
+        chain = chain + " world";
+
+        StringBuilder chainBuilder = new StringBuilder("Hello");
+        chainBuilder.append(" to all");
+
+        //Cloning
+        Car car2 = (Car) car.clone();
+
+        System.out.println(car2);
 
     }
 
