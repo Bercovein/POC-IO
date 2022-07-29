@@ -11,7 +11,9 @@ import java.util.Objects;
 @Setter
 @Builder
 @ToString
-public final class Car implements Properties, Cloneable {
+public final class Car implements Properties, Cloneable
+        ,Comparable<Car>
+{
 
     private String model;
     private String brand;
@@ -48,6 +50,11 @@ public final class Car implements Properties, Cloneable {
     @Override
     public int hashCode() {
         return Objects.hash(model, brand, price); // <- Buscar la forma a la antigua
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return this.price - o.getPrice();
     }
 
 //    @Override
