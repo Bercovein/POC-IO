@@ -1,15 +1,16 @@
 package com.example.pocio.model;
 
 import com.example.pocio.model.interfaces.Properties;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.Objects;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder
+@ToString
 public final class Car implements Properties, Cloneable {
 
     private String model;
@@ -33,4 +34,24 @@ public final class Car implements Properties, Cloneable {
     public Object clone()throws CloneNotSupportedException{
         return super.clone();
     }
+
+    //El @Data ya lo incluye por defecto
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return Objects.equals(model, car.model) && Objects.equals(brand, car.brand) && Objects.equals(price, car.price);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(model, brand, price); // <- Buscar la forma a la antigua
+    }
+
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(model, brand, price);
+//    }
 }
