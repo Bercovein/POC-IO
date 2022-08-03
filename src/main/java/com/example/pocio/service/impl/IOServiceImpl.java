@@ -5,6 +5,8 @@ import com.example.pocio.dto.PersonDTO;
 import com.example.pocio.dto.TextDTO;
 import com.example.pocio.service.IOService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -18,6 +20,7 @@ import java.util.List;
 @Service
 public class IOServiceImpl implements IOService {
 
+    private static Logger logger = LogManager.getLogger(IOServiceImpl.class.getName());
     private static final String FILES_PATH="files/";
 
     private static final String PERSONS_PATH = FILES_PATH.concat("Persons.txt");
@@ -37,16 +40,18 @@ public class IOServiceImpl implements IOService {
         try {
             File file = new File(MY_FILE_PATH);
             reader = new BufferedReader(new FileReader(file));
-
+            logger.info("Opening file: ".concat(file.getName()));
             while ((str = reader.readLine()) != null) { //line oriented
                 toResponse = toResponse.concat(str);
             }
             response.setText(toResponse);
 
         } catch (Exception e) {
+            logger.error("Error tratando de leer el archivo: {}", e.getMessage());
             e.printStackTrace();
         }finally {
             if(reader != null) {
+                logger.debug("Closing file.");
                 reader.close();
             }
         }

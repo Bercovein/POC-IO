@@ -47,9 +47,17 @@ public final class Car implements Properties, Cloneable
         return Objects.equals(model, car.model) && Objects.equals(brand, car.brand) && Objects.equals(price, car.price);
     }
 
+//    @Override
+//    public int hashCode() {
+//        int hash = 1;
+//        hash = hash * 17 + model.hashCode();
+//        hash = hash * 31 + brand.hashCode();
+//        return hash;
+//    }
+
     @Override
     public int hashCode() {
-        return Objects.hash(model, brand, price); // <- Buscar la forma a la antigua
+        return Objects.hash(model, brand, price);
     }
 
     @Override
@@ -57,8 +65,4 @@ public final class Car implements Properties, Cloneable
         return this.price - o.getPrice();
     }
 
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(model, brand, price);
-//    }
 }
