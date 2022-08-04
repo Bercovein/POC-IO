@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
+    <Properties>
+        <Property name="filename">./logs</Property>
+    </Properties>
+
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
+        <RollingFile name="file"
+                     fileName="${filename}/LogDemo.Log"
+                     filePattern="${filename}/Logdemo-%d{HH-mm-ss.SSS}.log">
+            <PatternLayout>
+                <pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</pattern>
+            </PatternLayout>
+            <SizeBasedTriggeringPolicy size="1 KB"/> <!-- Crea un nuevo archivo si llega a ese tamaño -->
+        </RollingFile>
     </Appenders>
     <Loggers>
-        <Root level="error">
+        <!-- customiza log para un package, additivity añade los logs a los del root para ese package -->
+        <Logger name = "controller" level="trace" additivity="false">
+            <AppenderRef ref="Console" /> <!-- loguea en el appender -->
+            <AppenderRef ref="file" />
+        </Logger>
+        <Root level="error"> <!-- Root se aplica a todas las clases con el nivel Error -->
             <AppenderRef ref="Console"/>
         </Root>
     </Loggers>
