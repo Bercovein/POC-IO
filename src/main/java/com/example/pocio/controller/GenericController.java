@@ -14,7 +14,8 @@ public class GenericController {
     @GetMapping
     public void generics() {
 
-        WizardBag bag = new WizardBag();
+        WizardBag bag = new WizardBag<>(); // <- Raw Type
+//        WizardBag<Scroll> bag = new WizardBag<>(); // <- Parametrized
 
         bag.add(new Scroll("Fly","Permite levitar durante 10 min a quien lo lea."));
         bag.add(new Potion("Heal Potion","Cura heridas leves."));
