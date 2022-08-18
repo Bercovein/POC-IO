@@ -51,8 +51,7 @@ public final class Car implements Properties, Cloneable
 //    public int hashCode() {
 //        int hash = 1;
 //        hash = hash * 17 + model.hashCode();
-//        hash = hash * 31 + brand.hashCode();
-//        return hash;
+//        return hash * 31 + brand.hashCode();
 //    }
 
     @Override

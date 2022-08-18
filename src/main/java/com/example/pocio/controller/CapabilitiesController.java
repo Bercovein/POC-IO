@@ -1,7 +1,10 @@
 package com.example.pocio.controller;
 
+import com.example.pocio.logger.Log;
+import com.example.pocio.logger.LogFactory;
 import com.example.pocio.model.Car;
 import com.example.pocio.model.Client;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,10 +13,16 @@ import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/capabilities")
+@Slf4j
 public class CapabilitiesController {
+
+    private static final Log CUSTOM_LOG = LogFactory.getLog(CapabilitiesController.class);
 
     @GetMapping
     public void capability() throws CloneNotSupportedException {
+
+        CUSTOM_LOG.info("--- Capability Log with Wrapper---");
+        log.info("--- Capability log with {} ---", "SLF4J");
 
         //casting
         double myDouble = 2.55d;
@@ -33,7 +42,7 @@ public class CapabilitiesController {
 
         car.gerProperties();
 
-        IGreeting greeting = new Greeting() {
+        IGreeting greeting  =  new Greeting(){
             @Override
             public void sayHi() {
                 System.out.println("Implementación anónima");

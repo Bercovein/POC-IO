@@ -68,7 +68,6 @@ public class CollectionsController {
             System.out.println("Clave:" + key + "->Valor:" + map.get(key));
         }
 
-
         //LinkedHashMap
         Map<Car,String> lhmap = new LinkedHashMap<>(); //<- Persiste el orden de inserción
         lhmap.put(new Car("Corolla","Toyota",10000),"Toyota");

@@ -20,7 +20,7 @@ import java.util.List;
 @Service
 public class IOServiceImpl implements IOService {
 
-    private static Logger logger = LogManager.getLogger(IOServiceImpl.class.getName());
+    private static final Logger logger = LogManager.getLogger(IOServiceImpl.class.getName());
     private static final String FILES_PATH="files/";
 
     private static final String PERSONS_PATH = FILES_PATH.concat("Persons.txt");
