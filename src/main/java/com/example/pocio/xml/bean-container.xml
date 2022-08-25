@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="company" class="com.example.pocio.ioc.Company" init-method="init" destroy-method="destroy">
+        <property name="address"><ref bean="address"/></property>
+    </bean>
+
+    <bean id="address" class="com.example.pocio.ioc.Address">
+        <constructor-arg type="java.lang.String" value="Calle Falsa"/>
+        <constructor-arg type="int" value="123"/>
+    </bean>
+
+</beans>

@@ -9,4 +9,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class Company {
     private Address address;
+
+    private void init(){
+        System.out.println("Iniciando bean");
+    }
+
+    private void destroy(){
+        System.out.println("Destruyendo bean");
+    }
 }
