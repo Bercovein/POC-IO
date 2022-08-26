@@ -9,8 +9,6 @@ e
 5src/main/java/com/example/pocio/PocIoApplication.java,c\6\c600a98595821a25c848d03672dcfe1b536ef791
 p
 @.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_11.xml,8\c\8ccbb9388e386e6f3944c782e3d5a9dd5c13aeae
-m
-=.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_11.xml,5\e\5ed1c00bded3571f661e3c3911c0cbe44c07eeb9
 h
 8.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml,d\7\d748d8766080efc90fdc1cab153cb0f95a859ff1
 €
@@ -91,8 +89,6 @@ k
 ;.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml,6\f\6f2bcea28e31728cb204a5a8d94312872b1bbd2b
 h
 8.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_36.xml,5\c\5ce664cc58c5194ea8db9213ac42d70a883eab7c
-e
-5.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_36.xml,4\4\448c004e9fdda2afc7a59a6f0e73f42fb2e8da8b
 u
 E.idea/libraries/Maven__org_springframework_boot_spring_boot_2_7_0.xml,a\7\a7980ae36b5e4f6fc345fab47a8c92493ba85f7f
 ƒ
@@ -227,3 +223,11 @@ l
 <src/main/java/com/example/pocio/controller/IOController.java,4\9\494ae3714cb41312fde209b73ee1d4a7fb5d04af
 f
 6src/main/java/com/example/pocio/service/IOService.java,3\f\3fc6d11ccb815481f64cbeaedfcbafd73aa56a85
+^
+.src/main/java/com/example/pocio/model/Car.java,f\3\f3984b273cf36b690288331aeb257d69ccbb07ce
+u
+Esrc/main/java/com/example/pocio/controller/CollectionsController.java,f\d\fd56555f5ed2d5f19040332e75496d9f0f06a8ec
+o
+?src/main/java/com/example/pocio/service/impl/IOServiceImpl.java,8\d\8d4141a98f5c0624f02e2b66720e3626a5fba715
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec

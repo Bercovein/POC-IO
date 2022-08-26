@@ -29,7 +29,7 @@ public class IOCController {
 
         ((ConfigurableApplicationContext)context).close();
 
-        ApplicationContext contextWithXML = new ClassPathXmlApplicationContext("../xml/bean-container.xml");
+        ApplicationContext contextWithXML = new ClassPathXmlApplicationContext("classpath*:context.xml");
         Company company3 = contextWithXML.getBean(Company.class);
         System.out.println("With Container Context ".concat(company3.toString()));
 
